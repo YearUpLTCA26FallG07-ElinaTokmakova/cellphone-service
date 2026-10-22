@@ -7,7 +7,7 @@ public class CellPhone {
     private String phoneNumber;
     private String owner;
 
-    public CellPhone() {
+    public CellPhone() {  //constructor with default values
         this.serialNumber = 0;
         this.model = "";
         this.carrier = "";
@@ -53,5 +53,8 @@ public class CellPhone {
 
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+    public void dial(String anotherNumber){
+        System.out.println(this.owner + "'s phone is calling " + anotherNumber);
     }
 }
