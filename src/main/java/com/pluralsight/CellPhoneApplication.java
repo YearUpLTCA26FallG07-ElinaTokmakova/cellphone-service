@@ -10,29 +10,25 @@ public class CellPhoneApplication {
 
         CellPhone cellPhone1 = new CellPhone();
         CellPhone cellPhone2 = new CellPhone();
+        CellPhone cellPhone3 = new CellPhone(11257777, "Samsung", "Verizon", "999-999-9999", "Andre");
 
-        //input for my phone
-        enterAllDetails(cellPhone1);
-
-        System.out.println();
-
-        //input for other phone (only number and owner)
-        enterContactOnly(cellPhone2);
+        enterAllDetails(cellPhone1);         // prompt for phone (all details)
 
         System.out.println();
 
-        //display my phone and other phone (only number and owner)
-        display(cellPhone1);
-        System.out.println(); //extra blank line
+        enterContactOnly(cellPhone2);        // prompt for phone (owner and number only)
+
+        System.out.println();
+
+        display(cellPhone1);  //display owner and phone for each phone
         display(cellPhone2);
+        display(cellPhone3);
 
         System.out.println();
 
-        //first phone calling second one
-        cellPhone1.dial(cellPhone2.getPhoneNumber());
-
-        //second phone calling the first one
-        cellPhone2.dial(cellPhone1.getPhoneNumber());
+        cellPhone1.dial(cellPhone2.getPhoneNumber());        //first phone calling second one
+        cellPhone2.dial(cellPhone1.getPhoneNumber());        //second phone calling the first one
+        cellPhone1.dial(cellPhone3);                         //first phone calling the third one
     }
 
     public static String promptForString(String prompt){
@@ -53,7 +49,7 @@ public class CellPhoneApplication {
         phone.setModel(promptForString("What model is the phone? "));
         phone.setCarrier(promptForString("Who is the carrier? "));
         phone.setPhoneNumber(promptForString("What is the phone number? "));
-        phone.setOwner(promptForString("Who is the owner of the phone? "));;
+        phone.setOwner(promptForString("Who is the owner of the phone? "));
     }
 
     //method for entering data for phone with owner and number only
@@ -64,7 +60,6 @@ public class CellPhoneApplication {
 
     //method for displaying phone number and owner
     public static void display(CellPhone phone) {
-        System.out.println("Phone number: " + phone.getPhoneNumber());
-        System.out.println("Owner: " + phone.getOwner());
+        System.out.println(phone.getOwner() + " " + phone.getPhoneNumber());
     }
 }
